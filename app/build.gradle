@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "25.2.0"
     defaultConfig {
         applicationId "eu.arateb.spatiatlas"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,13 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/menu'] } }
+    sourceSets { main { res.srcDirs = ['src/main/res'] } }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.github.sevar83:android-spatialite:1.0.7'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.github.sevar83:android-spatialite:n-support-SNAPSHOT'
     compile 'com.google.android.gms:play-services-maps:10.0.1'
 
     testCompile 'junit:junit:4.12'
