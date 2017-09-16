@@ -185,7 +185,7 @@ public class MapFragment extends SupportMapFragment implements
 
     private void setupMap(GoogleMap googleMap, boolean resetCamera) {
         mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.setOnMarkerClickListener(this);
         mMap.setOnCameraChangeListener(this);
 
