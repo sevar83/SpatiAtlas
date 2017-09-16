@@ -9,13 +9,13 @@ import android.content.Context;
 import android.content.OperationApplicationException;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.spatialite.SQLException;
 import org.spatialite.database.SQLiteDatabase;
 
 import java.io.IOException;
@@ -98,8 +98,6 @@ public class SpatiAtlasProvider extends ContentProvider {
     public boolean onCreate() {
         // get access to the database helper
         final Context context = getContext();
-
-        SQLiteDatabase.loadLibs(context);
 
         Uri dbUri = Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.geodb);
         mDbHelper = new SpatialiteFileDbHelper(context, dbUri, DB_FILENAME);

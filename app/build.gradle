@@ -29,11 +29,19 @@ android {
         }
     }
     sourceSets { main { res.srcDirs = ['src/main/res'] } }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.github.sevar83:android-spatialite:n-support-SNAPSHOT'
+    compile 'com.github.sevar83:android-spatialite:2.0.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.android.gms:play-services-maps:11.2.2'
 
