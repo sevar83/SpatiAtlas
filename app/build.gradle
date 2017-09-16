@@ -10,7 +10,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        File localProperties = project.rootProject.file('local.properties')
+        if (localProperties.exists()) {
+            properties.load(localProperties.newDataInputStream())
+        }
+
+        def apikey = properties.getProperty('gmaps.v2.apikey')
+        // Add your Google Maps v2 API key in local.properties as gmaps.v2.apikey=...
+        manifestPlaceholders = [ gmapsV2ApiKey:apikey ]
     }
+
     buildTypes {
         release {
             minifyEnabled false
